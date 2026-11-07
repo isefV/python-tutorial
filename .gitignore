@@ -1,0 +1,33 @@
+# --- Reference material and build output (not part of the repo) ---
+.references/
+output/
+
+# --- Python / uv ---
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- LaTeX build artifacts ---
+*.aux
+*.log
+*.nav
+*.snm
+*.toc
+*.out
+*.vrb
+*.xdv
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
