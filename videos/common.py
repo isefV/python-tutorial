@@ -82,9 +82,9 @@ def cell(value, w=0.8, h=0.8, color=C_OBJ, size=32, fill_opacity=0.15) -> VGroup
     return VGroup(sq, txt)
 
 
-def list_obj(values, color=C_OBJ, w=0.8, label="list", direction=RIGHT) -> VGroup:
+def list_obj(values, color=C_OBJ, w=0.8, label="list", direction=RIGHT, h=None, size=32) -> VGroup:
     """A list object: row (or column) of cells plus a small type label above. [0] = cells VGroup."""
-    cells = VGroup(*[cell(v, w=w, h=w, color=color) for v in values]).arrange(direction, buff=0)
+    cells = VGroup(*[cell(v, w=w, h=h or w, color=color, size=size) for v in values]).arrange(direction, buff=0)
     lab = mono(label, 20, color=color).next_to(cells, UP, buff=0.08, aligned_edge=LEFT)
     return VGroup(cells, lab)
 

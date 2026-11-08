@@ -1,0 +1,18 @@
+Lesson 17 - Modules and the standard library
+Category: Python
+Video: 17-modules-stdlib.mp4   Length: 01:50   Narration: 237 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson seventeen: modules and the standard library. Every Python file is a module, a folder of modules is a package, and the standard library covers a surprising amount before you need anything from PyPI.
+
+[00:16] A module is just a py file, and a package is a folder of them. import binds the module name; as gives it an alias; from import pulls names out of it. Prefer explicit imports over star imports, so readers can see where every name comes from.
+
+[00:38] Each module has a dunder name. When a file is run as a script, its name is the string dunder main; when it's imported, it's the module's own name. So code under this guard runs only when the file is executed directly, and importing it has no side effects.
+
+[01:00] The re module handles regular expressions. findall returns every match: here, both dates. Use raw strings for patterns, so backslashes reach the regex engine untouched.
+
+[01:10] datetime parses and formats dates with strptime and strftime, and timedelta does date arithmetic, like adding thirty days.
+
+[01:20] A quick tour of what's in the box: statistics for basic stats, random with a seeded generator for reproducibility, functools for partial and caching, argparse for command-line options, logging instead of print, and subprocess to run other programs.
+
+[01:37] Modules are files, packages are folders, the main guard separates script from library, and the standard library already has dates, regular expressions, statistics and command-line tools.

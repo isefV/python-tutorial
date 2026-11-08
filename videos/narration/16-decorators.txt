@@ -1,0 +1,20 @@
+Lesson 16 - Decorators
+Category: Python
+Video: 16-decorators.mp4   Length: 01:58   Narration: 256 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson sixteen: decorators. A decorator is a function that takes a function and returns a new one. The at sign above a def is just shorthand for that.
+
+[00:14] Functions are objects, so they can be passed to other functions. Writing at timed above a function definition is exactly the same as defining it, then rebinding its name to timed of the function.
+
+[00:30] Here's a real one. timed defines an inner wrapper that accepts any arguments, starts a timer, calls the original function, prints the elapsed time and passes the result back. timed returns the wrapper, and that's what the name now points to.
+
+[00:47] functools dot wraps copies the original's name and docstring onto the wrapper, so debugging and help still show slow sum instead of wrapper.
+
+[00:59] The standard library ships useful decorators. cache remembers every result by its arguments. The naive recursive Fibonacci would take forever for a hundred; with one line of decoration, each value is computed once and fib of one hundred is instant.
+
+[01:17] To pass arguments to a decorator, add one more level. repeat of three is called first and returns the actual decorator, which then receives the function and returns the wrapper.
+
+[01:30] Decorators don't have to wrap at all. A registration decorator just records the function, say in a dict of commands, and returns it unchanged. Web frameworks route URLs this way.
+
+[01:44] The at sign means rebind the name to the decorator's result, wrappers add behaviour around calls, cache memoizes, and a decorator with arguments is a function that builds a decorator.

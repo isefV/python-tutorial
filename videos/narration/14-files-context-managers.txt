@@ -1,0 +1,24 @@
+Lesson 14 - Files and context managers
+Category: Python
+Video: 14-files-context-managers.mp4   Length: 02:05   Narration: 270 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson fourteen: files and context managers. Reading and writing files is easy in Python; the important part is the with statement, which guarantees that resources are released.
+
+[00:13] open returns a file object, and the with statement makes sure it gets closed when the block ends, whether it ends normally or with an exception. Always pass an encoding; the default depends on the operating system.
+
+[00:29] Iterating over a file yields one line at a time, so even huge files never have to fit in memory. The mode picks read, write, append or binary.
+
+[00:43] pathlib represents paths as objects. The slash operator joins them, with the right separator for each operating system.
+
+[00:50] A path knows its name, stem and suffix, can read or write a whole file in one call, and can glob for matching files.
+
+[01:03] The json module converts between Python objects and JSON text: dumps produces a string, loads parses one. Note how True becomes lower-case true.
+
+[01:12] For CSV, DictReader turns each row into a dict keyed by the header. Every value comes back as a string, so convert numbers yourself.
+
+[01:25] Writing your own is easiest with the contextmanager decorator. Everything before the yield is the setup; the with block runs at the yield; everything after it, in a finally, is the teardown that always happens.
+
+[01:39] A class works too: define dunder enter and dunder exit. Files, locks, database transactions and temporary directories all use exactly this protocol.
+
+[01:50] Always open files with with and an explicit encoding, prefer pathlib for paths, use the json and csv modules for data, and write your own context managers for any setup and teardown.

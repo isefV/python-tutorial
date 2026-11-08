@@ -1,0 +1,22 @@
+Lesson 13 - Exceptions
+Category: Python
+Video: 13-exceptions.mp4   Length: 02:00   Narration: 260 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson thirteen: exceptions. Python reports errors by raising exceptions, and it uses them freely, even for ordinary situations like a missing key. Handling them well is everyday Python.
+
+[00:14] Put the risky operation in the try block. If it raises, the matching except block handles it. If nothing was raised, the else block runs. And finally runs in every case, even after a return, which makes it the place for cleanup.
+
+[00:31] Calling with forty-two: int succeeds, so else prints parsed, then finally runs. With a b c, int raises a value error, so except prints bad input, and finally still runs.
+
+[00:46] Define your own exception by subclassing a built-in one. Callers can catch InvalidAge specifically, or catch any ValueError.
+
+[00:54] When you translate one error into another, raise the new one from the original. The traceback then shows both, and the original is kept as the cause.
+
+[01:07] Other languages often check first, then act: look before you leap. Python style usually just tries the operation and handles the failure: it's easier to ask forgiveness than permission. It avoids a double lookup and race conditions between the check and the use.
+
+[01:25] Whatever you catch, be specific. A tuple catches several types at once: except key error or value error. A bare except hides real bugs.
+
+[01:37] You'll meet these six constantly. Learn to read them: the exception's name usually tells you exactly what went wrong.
+
+[01:46] Put only the risky line in try, handle specific exceptions, use else for the success path and finally for cleanup, and chain your own exceptions to the original cause.

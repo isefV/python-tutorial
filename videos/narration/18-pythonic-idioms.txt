@@ -1,0 +1,26 @@
+Lesson 18 - Pythonic idioms
+Category: Python
+Video: 18-pythonic-idioms.mp4   Length: 01:55   Narration: 220 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson eighteen: Pythonic idioms. Code can be correct and still not read like Python. Here are the habits that make the difference, each shown as the C-style version first, then the idiomatic one.
+
+[00:16] Need the index too? Don't loop over range of len. enumerate gives you index and item together.
+
+[00:25] Test emptiness by truthiness, and compare with None using is, never with double equals.
+
+[00:33] Adding strings in a loop copies them again and again. join builds the result in one pass.
+
+[00:43] Swapping needs no temporary variable: the right side is packed into a tuple, then unpacked.
+
+[00:51] A loop that only appends is a comprehension waiting to happen: one line, and usually faster.
+
+[01:00] dict dot get with a default replaces a whole if else block, and never raises a key error.
+
+[01:10] Comparisons chain like in maths, and f-strings beat concatenation and str calls.
+
+[01:18] And any resource that must be released belongs in a with block, so it closes even on errors.
+
+[01:27] Type import this in any Python shell to read the Zen of Python. A few lines sum up everything in this lesson: explicit is better than implicit, simple is better than complex, and readability counts.
+
+[01:43] None of these change what the code does. They change how fast another Python programmer can read it, and that is what Pythonic really means.

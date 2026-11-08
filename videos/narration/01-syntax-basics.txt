@@ -1,0 +1,26 @@
+Lesson 01 - Syntax basics
+Category: Python
+Video: 01-syntax-basics.mp4   Length: 02:10   Narration: 282 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson one: syntax basics. If you already write C, Java or JavaScript, Python will look familiar, but it rests on a few different ideas. Let's see how a Python program is laid out.
+
+[00:16] There are no declarations. Writing x equals 42 creates an integer object, and binds the name x to it.
+
+[00:24] Assigning a string to the same name doesn't convert anything. A new string object is created and the label simply moves to it. The name has no type; the object does.
+
+[00:37] type of x asks the object it currently points to.
+
+[00:44] One statement can bind several names. On the right, one comma two builds a tuple; the left side unpacks it, item by item.
+
+[00:53] That gives us the classic swap with no temporary variable. b comma a is evaluated first, into a tuple of the two objects, and only then are the names rebound.
+
+[01:08] Python has no braces. A colon opens a block, and the lines indented beneath it are the block's body. The block ends where the indentation ends.
+
+[01:19] The convention is four spaces per level. Inside parentheses, brackets or braces, a long statement may also continue on the next line without a backslash.
+
+[01:32] Every value carries its type, and you can ask about it at runtime. isinstance is the preferred type test, type returns the exact class, and dir lists an object's attributes. help shows its documentation.
+
+[01:46] print takes any number of values. sep sets the separator between them, and end replaces the trailing newline, so the next print continues the same line.
+
+[01:58] To recap: names are labels on typed objects, tuples make swapping trivial, indentation is the block structure, and the built-ins let you inspect any object.

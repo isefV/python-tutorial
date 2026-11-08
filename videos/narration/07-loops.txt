@@ -1,0 +1,24 @@
+Lesson 07 - Loops
+Category: Python
+Video: 07-loops.mp4   Length: 02:01   Narration: 259 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson seven: loops. Python has no C-style for loop with an index, a test and an increment. A for loop walks over the items of any iterable, and a few helpers cover the cases where you used to need the index.
+
+[00:19] Forget the index, the test and the increment. You write for x in a list, and x takes each item in turn.
+
+[00:28] When you really want numbers, range produces them: range of five is zero to four, and range takes a start, a stop that is excluded, and a step.
+
+[00:42] Need a counter as well? enumerate yields index, item pairs, and you can choose where counting starts.
+
+[00:50] zip walks several iterables in parallel and stops at the shortest. And for a dict, items gives you each key with its value.
+
+[01:01] while repeats as long as its condition is truthy; a non-empty list counts as true. continue jumps straight to the next round, skipping the rest of the body.
+
+[01:13] break leaves the loop immediately. When STOP comes off the queue, the loop ends, and the last item is never processed.
+
+[01:24] Loops can have an else clause. It runs when the loop finishes normally, without a break, which is exactly the 'searched everything and found nothing' case.
+
+[01:35] One more habit: never remove items from a list while looping over it. Build a new list instead, usually with a comprehension, which is the next lesson.
+
+[01:48] Loop over the items themselves, use range, enumerate and zip when you need numbers or pairs, and remember that a loop's else means no break happened.

@@ -1,0 +1,22 @@
+Lesson 26 - Cleaning and transforming
+Category: pandas
+Video: 26-pandas-cleaning.mp4   Length: 02:10   Narration: 280 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty-six: cleaning and transforming. Real data is messy. This lesson covers missing values, new columns, text and date columns, and a clean style for chaining it all together.
+
+[00:14] You have two basic options for missing values. dropna removes the rows that contain them. fillna replaces them, with zero, or with something smarter like the column mean. Which one is right depends on what missing means in your data.
+
+[00:33] Assigning to a new column name creates it. The right side is a whole-column expression, so there's no loop: tax is ten percent of sales, big is a boolean column. astype converts types, and rename changes labels.
+
+[00:50] Text columns have a str accessor that applies string methods to every value: strip whitespace, fix capitalization, split into parts. No loop, and missing values are handled for you.
+
+[01:02] Dates work the same way. Convert with to datetime, then the dt accessor gives you the year, month, weekday and more.
+
+[01:13] Most pandas methods return a new DataFrame, so you can chain them. Wrap the chain in parentheses and put one step per line: it reads top to bottom like a recipe, with no half-finished temporary variables. assign adds columns inside the chain.
+
+[01:33] One trap. Indexing twice and then assigning modifies a temporary copy, so the original never changes; with Copy-on-Write in modern pandas it simply has no effect. Do it in one step with loc.
+
+[01:47] And avoid apply with a Python function per row when a vectorized version exists: np dot where does the same job many times faster.
+
+[01:58] Decide what missing means, build columns with vectorized expressions, use the str and dt accessors, write transformations as one readable chain, and assign through loc.

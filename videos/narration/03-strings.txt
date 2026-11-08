@@ -1,0 +1,22 @@
+Lesson 03 - Strings
+Category: Python
+Video: 03-strings.mp4   Length: 01:59   Narration: 258 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson three: strings. A Python string is an immutable sequence of Unicode characters. Indexing and slicing work exactly like on every other sequence, and f-strings handle formatting.
+
+[00:13] A string is a row of characters. Indices start at zero, and negative indices count from the end, so s of minus one is the last character.
+
+[00:25] A slice takes start, stop and step. The stop index is excluded. s from seven to the end gives Python; a step of two takes every second character; and a step of minus one walks backwards, reversing the string.
+
+[00:43] Strings come with a rich set of methods: change case, split into a list, join a list back together, strip whitespace, replace, search. Every one of them returns a new string; the original is never touched. Join is called on the separator, not on the list.
+
+[01:04] An f-string evaluates any expression inside its braces. After a colon comes a format spec: point two f means two decimal places.
+
+[01:13] The same mini-language gives thousands separators, percentages, zero padding and hex. And the equals sign prints the expression next to its value, which is perfect for quick debugging.
+
+[01:27] You can't change a string in place. Assigning to an index raises a type error.
+
+[01:34] Instead, build a new string from pieces and rebind the name. The old object is untouched. Text becomes bytes only when you encode it: café in UTF-8 is five bytes.
+
+[01:47] Remember: slices exclude the stop index, methods return new strings, f-strings do all the formatting, and text only becomes bytes when you encode it.

@@ -1,0 +1,20 @@
+Lesson 19 - The ndarray
+Category: NumPy
+Video: 19-numpy-arrays.mp4   Length: 02:16   Narration: 301 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson nineteen starts the NumPy part. Its core object is the n-d array: an N-dimensional grid of numbers of a single type, stored in one block of memory. That one design decision is why NumPy is fast.
+
+[00:17] Here's the motivation. Squaring and summing a million floats with a generator takes around ninety milliseconds. The same computation as a NumPy expression takes about three. Same machine, same result, roughly thirty times faster.
+
+[00:34] A Python list stores pointers. Each number is a full Python object somewhere else in memory, with its own type information, so every step of a loop has to follow a pointer and check a type.
+
+[00:49] An n-d array stores the raw numbers side by side, all of one d-type, eight bytes each for float sixty-four. A single compiled loop can walk straight through them, and that is where the speed comes from.
+
+[01:06] np dot array converts a list, and picks one d-type for everything: mix ints and floats and you get floats. zeros, ones and full build arrays of a given shape. arange is range for arrays, and linspace gives a fixed number of evenly spaced points, endpoints included. For random numbers, create a generator with a seed so results are reproducible.
+
+[01:33] arange of twelve is a flat array with shape twelve. reshape of three by four views the same twelve numbers as a grid of three rows and four columns. No data moves; only the shape changes.
+
+[01:48] Every array knows its number of dimensions, its size and its d-type. Pass minus one to reshape and NumPy works out that dimension for you. dot T transposes, again without copying.
+
+[02:02] One type, one block of memory, and compiled loops over it: that's the n-d array. Create arrays with the factory functions, and reshape them freely, since the data never moves.

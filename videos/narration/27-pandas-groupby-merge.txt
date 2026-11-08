@@ -1,0 +1,20 @@
+Lesson 27 - Group, reshape and join
+Category: pandas
+Video: 27-pandas-groupby-merge.mp4   Length: 01:51   Narration: 238 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty-seven: grouping, reshaping and joining. If you know SQL, this is GROUP BY, pivot tables and JOIN, all on DataFrames.
+
+[00:11] groupby works in three steps. Split: the rows are divided into groups by the key, here the city.
+
+[00:19] Apply: an aggregation runs on each group separately, here a sum. Missing values are skipped. Combine: the results are glued into a new Series, indexed by the group keys.
+
+[00:31] agg runs several aggregations at once, and named aggregations give the result columns clear names.
+
+[00:40] Sometimes you want the group result back on every original row, for example each sale's share of its city's total. transform does that: same aggregation, but the output has the original shape, so it can become a new column.
+
+[00:58] Long data has one row per observation. pivot table spreads it out: cities become rows, months become columns, and an aggregation fills the cells. melt is the inverse, folding the columns back into rows, which is the shape plotting libraries usually prefer.
+
+[01:17] merge joins two tables on a key column, like SQL. A left join keeps every row of the left table and attaches the matching country. Tokyo has no match, so it gets NaN, and Paris, which matches nothing on the left, is dropped. concat simply stacks tables.
+
+[01:38] Group by splits rows by key, aggregates each group and combines the results; transform keeps the original shape; pivot and melt reshape; merge and concat join tables.

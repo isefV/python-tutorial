@@ -1,0 +1,20 @@
+Lesson 25 - Selecting and filtering
+Category: pandas
+Video: 25-pandas-selecting.mp4   Length: 01:48   Narration: 235 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty-five: selecting and filtering. pandas has two indexers, loc for labels and iloc for positions, plus boolean masks for picking rows by condition.
+
+[00:12] Square brackets with one column name return that column as a Series. With a list of names you get a smaller DataFrame. Note the double brackets: the outer pair indexes, the inner pair is a Python list.
+
+[00:29] loc takes row labels and column labels. loc of zero to two, city and sales, includes row two: label slices include their end.
+
+[00:38] iloc counts positions like a Python list, so iloc of zero to two, zero to two stops before position two. And iloc of minus one is the last row.
+
+[00:52] A comparison on a column gives a boolean Series, one True or False per row. That's a mask. NaN compares as False.
+
+[01:01] Pass the mask to loc to keep only the True rows. The surviving rows keep their original labels: zero, two and four. The index travels with the data.
+
+[01:15] Combine masks with ampersand, bar and tilde for and, or and not, with parentheses around each comparison. isin tests membership in a list. query takes the condition as a readable string, where at name refers to a Python variable. between checks a range, inclusive.
+
+[01:34] Brackets pick columns, loc and iloc pick rows and columns by label or position, and masks filter rows by any condition you can express as a boolean Series.

@@ -1,0 +1,20 @@
+Lesson 28 - The Matplotlib object model
+Category: Matplotlib
+Video: 28-matplotlib-basics.mp4   Length: 01:52   Narration: 252 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty-eight starts Matplotlib, Python's standard plotting library. Once you understand its three objects, figure, axes and artists, the huge API becomes predictable.
+
+[00:12] plt dot subplots creates two objects. The Figure is the whole canvas, the thing you save to a file. The Axes is one plot inside it, with its own coordinate system, ticks and labels.
+
+[00:26] Then every call on ax adds something. plot draws a line from the x and y arrays; a format string like dash dash makes it dashed. set adds the axis labels and the title in one call.
+
+[00:41] annotate places text with an arrow pointing at a data coordinate. legend collects the labels you passed to plot. And fig dot savefig writes the figure; the file extension picks the format.
+
+[00:55] Everything you see is an Artist: lines, text, the legend, even the axis itself. Artists are owned by an Axes, and the Axes is owned by the Figure. That hierarchy is the whole model.
+
+[01:11] There are two ways to drive Matplotlib. The pyplot functions act on an invisible current axes, which is handy for a quick look. The explicit style keeps the figure and axes in variables, so it stays clear with several plots, functions and saved files. Prefer it.
+
+[01:30] Plot calls also return their artists. Keep them, and you can restyle a line or a single bar after the fact.
+
+[01:40] A figure holds axes, axes hold artists, and every call on ax adds or changes an artist. Use the explicit interface for anything you'll keep.

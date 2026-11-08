@@ -1,0 +1,22 @@
+Lesson 15 - Iterators and generators
+Category: Python
+Video: 15-iterators-generators.mp4   Length: 02:03   Narration: 268 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson fifteen: iterators and generators. Every for loop runs on a tiny protocol of two functions. Once you see it, generators, lazy pipelines and itertools all fall into place.
+
+[00:14] Behind every for loop: iter asks the iterable for an iterator, an object that remembers a position. Each call to next returns the following item and advances.
+
+[00:26] When nothing is left, next raises StopIteration, and the for loop takes that as its signal to stop. Write dunder iter and dunder next, and your own class works in a for loop.
+
+[00:41] Writing iterator classes by hand is tedious. A function that contains yield becomes a generator instead. Calling it runs nothing yet; it returns a generator object.
+
+[00:52] Each next runs the body until the next yield, hands out that value, and freezes, keeping all its local variables. This one is infinite, and that's fine: values only exist when someone asks for them.
+
+[01:09] Chain generators and you get a pipeline. Each stage pulls one item from the stage before it, so a row travels all the way through before the next is even read. The file could be gigabytes; memory use stays tiny.
+
+[01:26] One catch: a generator can be consumed only once. Iterate it a second time and it's simply empty.
+
+[01:35] The itertools module is a toolbox of lazy building blocks: chain joins iterables, islice slices any iterator, accumulate gives running totals, pairwise yields neighbours, product and combinations enumerate choices, and groupby groups consecutive equal items.
+
+[01:51] A for loop is iter plus repeated next, yield turns a function into a pausable generator, chained generators stream data, and itertools supplies the plumbing.

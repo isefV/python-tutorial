@@ -1,0 +1,22 @@
+Lesson 22 - Linear algebra, random and toolbox
+Category: NumPy
+Video: 22-numpy-linalg-random.mp4   Length: 02:01   Narration: 261 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty-two: linear algebra, random numbers, and the everyday NumPy toolbox. This is the last NumPy lesson before we move on to pandas.
+
+[00:12] For matrices, the at operator is the true matrix product: each result entry is a row of the left times a column of the right, summed. Row one, two times column one, two: two times two plus one times one, five.
+
+[00:29] A star A is something else: element-wise multiplication, which squares each entry. Mixing the two up is a classic bug.
+
+[00:39] np dot linalg has the standard toolkit. solve finds x in A x equals b. Each row is a line, and the solution is where the lines meet: x point eight, y one point four.
+
+[00:54] The same module gives you the inverse, the determinant, eigenvalues and norms. Prefer solve over multiplying by the inverse: it's faster and more accurate.
+
+[01:06] Random numbers come from a generator object. Create it once with a seed, and every run produces the same samples, which makes results reproducible. A thousand normal samples pile up into the familiar bell curve.
+
+[01:21] The generator also draws integers, picks random choices, and shuffles with permutation.
+
+[01:28] Finally the helpers you'll use daily: concatenate and stack to join arrays, sort and argsort, unique. Note that NaN poisons ordinary aggregations, so use the nan-aware versions like nan mean. Clip limits a range, and save and load store arrays in NumPy's own fast binary format.
+
+[01:48] The at operator multiplies matrices, linalg solves systems, a seeded generator makes randomness reproducible, and a handful of helpers cover joining, sorting and missing values.

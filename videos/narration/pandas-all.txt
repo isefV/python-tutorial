@@ -1,0 +1,94 @@
+pandas - all lessons in one video (pandas.mp4, 09:50)
+
+===== [00:00] Lesson 23 - Series and DataFrame =====
+[00:00] Lesson twenty-three begins pandas, the library for tables. It's built on NumPy, but adds the thing NumPy lacks: labels. Every row and every column has a name.
+
+[00:13] A Series is a one-dimensional array of values with an index: a label for every element. By default the labels are zero, one, two, but they can be anything, like letters.
+
+[00:26] Square brackets look up by label, so s of b is twenty. iloc looks up by position. And arithmetic works on all values at once, just like NumPy.
+
+[00:40] Here's what makes pandas different. Adding two Series does not pair them by position. It pairs them by label: b with b, c with c.
+
+[00:51] Labels that appear in only one of them have no partner, so the result there is NaN, not a number. Alignment is automatic, and it prevents a whole class of silent off-by-one bugs.
+
+[01:07] A DataFrame is a table. The easiest way to build one is a dict of columns. Each column is really a Series, and all of them share one index, the row labels on the left.
+
+[01:21] Every column has its own d-type. The missing sale became NaN, and since NaN is a float, the whole sales column is float sixty-four.
+
+[01:33] shape gives rows and columns. columns and index are the two sets of labels.
+
+[01:40] Any column can become the index with set index, so you can look rows up by city. reset index turns it back into a normal column.
+
+[01:52] A Series is labelled values, a DataFrame is labelled columns sharing an index, and every operation lines data up by label rather than by position.
+
+===== [02:04] Lesson 24 - Load and inspect =====
+[02:04] Lesson twenty-four: loading and inspecting data. Real work starts with a file, and the first few minutes with a new dataset always follow the same routine.
+
+[02:17] read csv turns a text file into a DataFrame. It reads the header for column names, guesses each column's type, and treats empty fields as missing. There are siblings for Excel, Parquet, JSON and SQL databases.
+
+[02:32] head shows the first rows, five by default, and tail the last ones. That's always the first thing to run: does the data look like you expected?
+
+[02:45] Next, the structure: shape, the d-type of every column, and info, which adds non-null counts and memory use. Already you can see that sales has only five values out of six.
+
+[02:58] describe summarizes every numeric column: count, mean, standard deviation, minimum, quartiles and maximum. Again count is five, so one value is missing.
+
+[03:10] For text columns, value counts tells you how often each value appears, and nunique how many distinct values there are. Typos and inconsistent spellings show up here immediately.
+
+[03:22] And isna dot sum counts missing values per column. True counts as one, so summing the boolean mask counts the gaps.
+
+[03:33] Writing is the mirror image: to csv, to json, to parquet, to excel. Pass index equals False to csv unless the index carries real information; otherwise you get an extra unnamed column.
+
+[03:47] Read the file, look at the first rows, check the shape and types, summarize the numbers, count the categories and the missing values, and only then start analysing.
+
+===== [04:01] Lesson 25 - Selecting and filtering =====
+[04:01] Lesson twenty-five: selecting and filtering. pandas has two indexers, loc for labels and iloc for positions, plus boolean masks for picking rows by condition.
+
+[04:13] Square brackets with one column name return that column as a Series. With a list of names you get a smaller DataFrame. Note the double brackets: the outer pair indexes, the inner pair is a Python list.
+
+[04:30] loc takes row labels and column labels. loc of zero to two, city and sales, includes row two: label slices include their end.
+
+[04:39] iloc counts positions like a Python list, so iloc of zero to two, zero to two stops before position two. And iloc of minus one is the last row.
+
+[04:53] A comparison on a column gives a boolean Series, one True or False per row. That's a mask. NaN compares as False.
+
+[05:02] Pass the mask to loc to keep only the True rows. The surviving rows keep their original labels: zero, two and four. The index travels with the data.
+
+[05:16] Combine masks with ampersand, bar and tilde for and, or and not, with parentheses around each comparison. isin tests membership in a list. query takes the condition as a readable string, where at name refers to a Python variable. between checks a range, inclusive.
+
+[05:35] Brackets pick columns, loc and iloc pick rows and columns by label or position, and masks filter rows by any condition you can express as a boolean Series.
+
+===== [05:48] Lesson 26 - Cleaning and transforming =====
+[05:48] Lesson twenty-six: cleaning and transforming. Real data is messy. This lesson covers missing values, new columns, text and date columns, and a clean style for chaining it all together.
+
+[06:02] You have two basic options for missing values. dropna removes the rows that contain them. fillna replaces them, with zero, or with something smarter like the column mean. Which one is right depends on what missing means in your data.
+
+[06:21] Assigning to a new column name creates it. The right side is a whole-column expression, so there's no loop: tax is ten percent of sales, big is a boolean column. astype converts types, and rename changes labels.
+
+[06:38] Text columns have a str accessor that applies string methods to every value: strip whitespace, fix capitalization, split into parts. No loop, and missing values are handled for you.
+
+[06:50] Dates work the same way. Convert with to datetime, then the dt accessor gives you the year, month, weekday and more.
+
+[07:01] Most pandas methods return a new DataFrame, so you can chain them. Wrap the chain in parentheses and put one step per line: it reads top to bottom like a recipe, with no half-finished temporary variables. assign adds columns inside the chain.
+
+[07:21] One trap. Indexing twice and then assigning modifies a temporary copy, so the original never changes; with Copy-on-Write in modern pandas it simply has no effect. Do it in one step with loc.
+
+[07:35] And avoid apply with a Python function per row when a vectorized version exists: np dot where does the same job many times faster.
+
+[07:46] Decide what missing means, build columns with vectorized expressions, use the str and dt accessors, write transformations as one readable chain, and assign through loc.
+
+===== [07:59] Lesson 27 - Group, reshape and join =====
+[07:59] Lesson twenty-seven: grouping, reshaping and joining. If you know SQL, this is GROUP BY, pivot tables and JOIN, all on DataFrames.
+
+[08:10] groupby works in three steps. Split: the rows are divided into groups by the key, here the city.
+
+[08:18] Apply: an aggregation runs on each group separately, here a sum. Missing values are skipped. Combine: the results are glued into a new Series, indexed by the group keys.
+
+[08:30] agg runs several aggregations at once, and named aggregations give the result columns clear names.
+
+[08:39] Sometimes you want the group result back on every original row, for example each sale's share of its city's total. transform does that: same aggregation, but the output has the original shape, so it can become a new column.
+
+[08:57] Long data has one row per observation. pivot table spreads it out: cities become rows, months become columns, and an aggregation fills the cells. melt is the inverse, folding the columns back into rows, which is the shape plotting libraries usually prefer.
+
+[09:16] merge joins two tables on a key column, like SQL. A left join keeps every row of the left table and attaches the matching country. Tokyo has no match, so it gets NaN, and Paris, which matches nothing on the left, is dropped. concat simply stacks tables.
+
+[09:37] Group by splits rows by key, aggregates each group and combines the results; transform keeps the original shape; pivot and melt reshape; merge and concat join tables.

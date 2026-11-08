@@ -1,0 +1,24 @@
+Lesson 11 - Classes
+Category: Python
+Video: 11-classes.mp4   Length: 02:17   Narration: 300 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson eleven: classes. Python's object model is simple and open: self is the explicit this, attributes live in dictionaries, and properties let you add logic without changing how callers use your class.
+
+[00:15] class creates a new type. The double-underscore init method runs right after a new instance is created, and stores attributes on self. self is simply the instance, passed explicitly as the first parameter.
+
+[00:29] Calling acc dot deposit of fifty is really Account dot deposit of acc and fifty: the method is found on the class, and the instance is passed in as self.
+
+[00:44] Attributes assigned in init belong to each instance. Attributes in the class body, like bank, belong to the class and are shared by all instances.
+
+[00:54] When you read acc dot bank, Python looks in the instance first. It's not there, so it follows the link to the class and finds it. Methods are found the same way.
+
+[01:10] Python has no getters and setters by habit. Start with a plain attribute. If you later need logic, turn it into a property: callers still write t dot celsius, but now a method runs behind the scenes.
+
+[01:25] The setter can validate. Assigning minus three hundred is rejected with a value error. A property without a setter, like fahrenheit, is read-only and computed on demand.
+
+[01:39] A classmethod receives the class instead of an instance, which makes it perfect for alternative constructors like from string. A staticmethod receives neither; it's just a function that lives in the class's namespace.
+
+[01:52] There are no access modifiers. A leading underscore means internal, by convention. Two underscores trigger name mangling, which avoids clashes in subclasses but hides nothing.
+
+[02:04] init sets up each instance, self is just the first argument, lookups fall back from instance to class, and properties add logic behind plain attribute syntax.

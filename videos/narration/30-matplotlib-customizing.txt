@@ -1,0 +1,20 @@
+Lesson 30 - Customizing and saving
+Category: Matplotlib
+Video: 30-matplotlib-customizing.mp4   Length: 02:01   Narration: 259 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson thirty: customizing and saving figures. Defaults get you a plot; a few targeted changes get you a figure you'd put in a report.
+
+[00:12] Every plot call accepts styling keywords: color, line width, line style and markers. A light grid helps reading values, and set x ticks chooses where the ticks go and what they say.
+
+[00:28] A log scale spreads out small values and compresses large ones, so the same data can look completely different. With sharey, two panels use one y range, which makes side-by-side comparisons honest.
+
+[00:43] figsize sets the canvas size in inches, which also fixes the aspect ratio. Without help, labels can collide or get clipped; layout constrained makes room for titles, labels and colorbars automatically. suptitle puts one title over the whole figure.
+
+[01:01] Style sheets change many defaults at once: colors, grid, fonts. Use one temporarily with a with block, or globally with plt dot style dot use. Individual defaults live in the rc params dictionary.
+
+[01:17] savefig picks the format from the file name. Vector formats like PDF and SVG stay sharp at any zoom; PNG is pixels, so raise the d p i. bbox inches tight trims extra white space.
+
+[01:32] And when your data is already in a DataFrame, its plot method builds the Matplotlib chart for you, with labels and a legend, and returns the Axes for further tweaks.
+
+[01:45] Style the lines, choose ticks and scales that suit the data, set defaults with style sheets, save in the right format, and let pandas create the plot when your data is already a DataFrame.

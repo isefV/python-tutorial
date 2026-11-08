@@ -1,0 +1,24 @@
+Lesson 05 - References and mutability
+Category: Python
+Video: 05-references-mutability.mp4   Length: 01:58   Narration: 253 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson five: references and mutability. One rule explains almost every why-did-my-list-change surprise in Python: assignment never copies.
+
+[00:09] a equals a list binds the name a to a new list object. b equals a does not copy that list; it attaches a second label to the very same object.
+
+[00:22] So appending through b changes the one object, and a sees the change. a is b is true: two names, one list.
+
+[00:34] Copying is explicit. A shallow copy, like dot copy, makes a new outer list, but its slots point at the same inner lists.
+
+[00:44] deepcopy copies recursively, so it shares nothing. Now append to the first inner list: the shallow copy sees ninety-nine, the deep copy does not.
+
+[00:56] A default value is evaluated once, when def runs, and stored on the function object. A list default is therefore one list shared by every call.
+
+[01:07] The first call appends one to it. The second call gets the same list back and appends two: the result is one, two. The fix is to default to None and create a fresh list inside the function.
+
+[01:25] A function receives a reference to the caller's object. Inside mutate, items and data are two labels on one list, so appending is visible outside.
+
+[01:35] Rebinding the parameter is different: it only moves the local label to a new object. The caller's list is untouched.
+
+[01:45] Assignment never copies, a shallow copy shares its insides, a mutable default is created only once, and a function can change your object but never your names.

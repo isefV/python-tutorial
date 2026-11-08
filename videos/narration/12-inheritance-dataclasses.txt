@@ -1,0 +1,20 @@
+Lesson 12 - Inheritance, dunders and dataclasses
+Category: Python
+Video: 12-inheritance-dataclasses.mp4   Length: 01:54   Narration: 247 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twelve: inheritance, dunder methods and dataclasses. These are the tools that let your own classes behave like Python's built-in types.
+
+[00:11] Dog inherits from Animal. Its init calls super dot init to let the parent set the name, then adds a breed. Dog overrides speak, but not introduce.
+
+[00:22] Now call d dot introduce. Lookup walks the method resolution order: the instance, Dog, then Animal, where introduce is found. Inside it, self dot speak starts the search again from the instance, and finds Dog's speak. That's polymorphism: Rex says Woof.
+
+[00:41] Operators and built-ins are just syntax for special methods with double underscores. v plus w calls v dot dunder add. len calls dunder len, square brackets call dunder getitem, and printing uses dunder repr. Define them, and your class works with the syntax.
+
+[01:01] Most small classes just hold data. The dataclass decorator reads the annotated fields and writes init, repr and equality for you. frozen makes instances immutable and hashable.
+
+[01:13] For mutable defaults, use field with a default factory, so each order gets its own list, avoiding the shared-default trap from lesson five.
+
+[01:24] If it walks like a duck... Python doesn't care about an object's class, only whether it has the methods you call. A Protocol writes that expectation down for type checkers: anything with a read method is readable, no inheritance required.
+
+[01:42] Override methods and reach the parent with super, implement dunders to support operators, let dataclass write the boilerplate, and rely on behaviour rather than inheritance.

@@ -1,0 +1,77 @@
+NumPy - all lessons in one video (numpy.mp4, 08:37)
+
+===== [00:00] Lesson 19 - The ndarray =====
+[00:00] Lesson nineteen starts the NumPy part. Its core object is the n-d array: an N-dimensional grid of numbers of a single type, stored in one block of memory. That one design decision is why NumPy is fast.
+
+[00:17] Here's the motivation. Squaring and summing a million floats with a generator takes around ninety milliseconds. The same computation as a NumPy expression takes about three. Same machine, same result, roughly thirty times faster.
+
+[00:34] A Python list stores pointers. Each number is a full Python object somewhere else in memory, with its own type information, so every step of a loop has to follow a pointer and check a type.
+
+[00:49] An n-d array stores the raw numbers side by side, all of one d-type, eight bytes each for float sixty-four. A single compiled loop can walk straight through them, and that is where the speed comes from.
+
+[01:06] np dot array converts a list, and picks one d-type for everything: mix ints and floats and you get floats. zeros, ones and full build arrays of a given shape. arange is range for arrays, and linspace gives a fixed number of evenly spaced points, endpoints included. For random numbers, create a generator with a seed so results are reproducible.
+
+[01:33] arange of twelve is a flat array with shape twelve. reshape of three by four views the same twelve numbers as a grid of three rows and four columns. No data moves; only the shape changes.
+
+[01:48] Every array knows its number of dimensions, its size and its d-type. Pass minus one to reshape and NumPy works out that dimension for you. dot T transposes, again without copying.
+
+[02:02] One type, one block of memory, and compiled loops over it: that's the n-d array. Create arrays with the factory functions, and reshape them freely, since the data never moves.
+
+===== [02:16] Lesson 20 - Indexing, slicing and masks =====
+[02:16] Lesson twenty: indexing NumPy arrays. You'll select rows, columns, blocks, and anything that matches a condition, and you need to know which selections share memory with the original.
+
+[02:30] Index a two-dimensional array with one pair of brackets: row, then column. a of one, two is the element in row one, column two.
+
+[02:40] Leave out the column to get a whole row. A colon means everything along that axis, so a of colon, two is column two. Slices with steps work on every axis at once.
+
+[02:55] A comparison on an array gives an array of booleans, the same shape: a mask. Indexing with the mask keeps exactly the True positions, and returns them as a flat copy.
+
+[03:08] Combine conditions with ampersand and bar, not and and or, and wrap each condition in parentheses. np dot where picks from two options element by element, and a mask on the left of an assignment changes only the matching elements.
+
+[03:26] You can also index with lists of positions. A list of row numbers picks those rows, in that order. Two lists pair up: rows zero and two, with columns one and three, gives two single elements.
+
+[03:41] A common use is sorting by another array: argsort returns the positions that would sort it, and indexing with them reorders the values.
+
+[03:52] Here's the subtle part. A basic slice is a view: a window onto the same memory. Change the view and the original array changes too.
+
+[04:03] Masks and fancy indexing always build a new array, so changing the result leaves the original alone. When you need an independent piece of a slice, call dot copy.
+
+[04:16] One bracket indexes every axis, masks select by condition, index lists pick arbitrary elements, and only basic slices share memory with the original.
+
+===== [04:28] Lesson 21 - Vectorization and broadcasting =====
+[04:28] Lesson twenty-one: vectorization and broadcasting. With NumPy you write array expressions instead of loops, and broadcasting lets arrays of different shapes combine without copying.
+
+[04:40] Arithmetic between arrays of the same shape works element by element: the first with the first, the second with the second. No loop in sight, and it runs in compiled code.
+
+[04:53] A plain number works too, applied to every element. Universal functions like square root and exp do the same, and comparisons give boolean arrays.
+
+[05:05] sum, mean, max and friends reduce the whole array to one number, unless you give an axis. Axis zero runs down the rows, axis one runs across the columns.
+
+[05:18] So sum with axis zero collapses each column into one number: four results. Mean with axis one collapses each row: three results. The axis you name is the one that disappears.
+
+[05:33] What if the shapes differ? Add a three-by-one column to a three-by-four array. NumPy stretches the size-one dimension to match, as if the column were repeated four times, without actually copying anything.
+
+[05:46] The rule: line the shapes up from the right. Each pair of dimensions must be equal, or one of them must be one. Three by four plus a plain four-element row works. Three by four plus three elements fails, because four and three don't match.
+
+[06:07] Put together: to standardize every column of a data matrix, compute the mean and standard deviation along axis zero, giving one number per column. Then subtract and divide. Broadcasting lines the three-element rows up against every row of X. Two lines, no loop.
+
+[06:25] Operators act element-wise, aggregations take an axis, broadcasting stretches size-one dimensions, and together they replace almost every loop you'd otherwise write.
+
+===== [06:36] Lesson 22 - Linear algebra, random and toolbox =====
+[06:36] Lesson twenty-two: linear algebra, random numbers, and the everyday NumPy toolbox. This is the last NumPy lesson before we move on to pandas.
+
+[06:48] For matrices, the at operator is the true matrix product: each result entry is a row of the left times a column of the right, summed. Row one, two times column one, two: two times two plus one times one, five.
+
+[07:05] A star A is something else: element-wise multiplication, which squares each entry. Mixing the two up is a classic bug.
+
+[07:15] np dot linalg has the standard toolkit. solve finds x in A x equals b. Each row is a line, and the solution is where the lines meet: x point eight, y one point four.
+
+[07:30] The same module gives you the inverse, the determinant, eigenvalues and norms. Prefer solve over multiplying by the inverse: it's faster and more accurate.
+
+[07:42] Random numbers come from a generator object. Create it once with a seed, and every run produces the same samples, which makes results reproducible. A thousand normal samples pile up into the familiar bell curve.
+
+[07:57] The generator also draws integers, picks random choices, and shuffles with permutation.
+
+[08:04] Finally the helpers you'll use daily: concatenate and stack to join arrays, sort and argsort, unique. Note that NaN poisons ordinary aggregations, so use the nan-aware versions like nan mean. Clip limits a range, and save and load store arrays in NumPy's own fast binary format.
+
+[08:24] The at operator multiplies matrices, linalg solves systems, a seeded generator makes randomness reproducible, and a handful of helpers cover joining, sorting and missing values.

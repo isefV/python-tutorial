@@ -1,0 +1,71 @@
+Matplotlib - all lessons in one video (matplotlib.mp4, 07:31)
+
+===== [00:00] Lesson 28 - The Matplotlib object model =====
+[00:00] Lesson twenty-eight starts Matplotlib, Python's standard plotting library. Once you understand its three objects, figure, axes and artists, the huge API becomes predictable.
+
+[00:12] plt dot subplots creates two objects. The Figure is the whole canvas, the thing you save to a file. The Axes is one plot inside it, with its own coordinate system, ticks and labels.
+
+[00:26] Then every call on ax adds something. plot draws a line from the x and y arrays; a format string like dash dash makes it dashed. set adds the axis labels and the title in one call.
+
+[00:41] annotate places text with an arrow pointing at a data coordinate. legend collects the labels you passed to plot. And fig dot savefig writes the figure; the file extension picks the format.
+
+[00:55] Everything you see is an Artist: lines, text, the legend, even the axis itself. Artists are owned by an Axes, and the Axes is owned by the Figure. That hierarchy is the whole model.
+
+[01:11] There are two ways to drive Matplotlib. The pyplot functions act on an invisible current axes, which is handy for a quick look. The explicit style keeps the figure and axes in variables, so it stays clear with several plots, functions and saved files. Prefer it.
+
+[01:30] Plot calls also return their artists. Keep them, and you can restyle a line or a single bar after the fact.
+
+[01:40] A figure holds axes, axes hold artists, and every call on ax adds or changes an artist. Use the explicit interface for anything you'll keep.
+
+===== [01:52] Lesson 29 - Common plot types =====
+[01:52] Lesson twenty-nine: the common plot types. Line, scatter, bar and histogram cover most needs; a few more handle uncertainty, distributions and images.
+
+[02:03] subplots with two rows and two columns gives a grid of four Axes. A line plot connects points in order: the natural choice for a trend over time.
+
+[02:15] A scatter plot draws one marker per pair of values, to show how two variables relate.
+
+[02:22] Bars compare a value across categories.
+
+[02:25] And a histogram counts how many values fall into each bin, which shows the shape of a distribution.
+
+[02:35] Real measurements come with uncertainty. fill between shades a band between a lower and an upper curve, good for continuous data. errorbar puts a bar on each individual point.
+
+[02:49] A box plot summarizes each group in five numbers: the box spans the middle half of the data, the line is the median, and the whiskers reach the bulk of the rest. Three groups with growing spread show up instantly. A violin plot draws the full estimated shape instead.
+
+[03:11] imshow draws a two-dimensional array as an image, mapping each value to a color through a colormap. Here a two-dimensional Gaussian bump. Always add a colorbar so readers can turn colors back into numbers.
+
+[03:27] Pick the plot for the question: lines for trends, scatter for relationships, bars for categories, histograms and box plots for distributions, and images for grids of values.
+
+===== [03:40] Lesson 30 - Customizing and saving =====
+[03:40] Lesson thirty: customizing and saving figures. Defaults get you a plot; a few targeted changes get you a figure you'd put in a report.
+
+[03:52] Every plot call accepts styling keywords: color, line width, line style and markers. A light grid helps reading values, and set x ticks chooses where the ticks go and what they say.
+
+[04:08] A log scale spreads out small values and compresses large ones, so the same data can look completely different. With sharey, two panels use one y range, which makes side-by-side comparisons honest.
+
+[04:23] figsize sets the canvas size in inches, which also fixes the aspect ratio. Without help, labels can collide or get clipped; layout constrained makes room for titles, labels and colorbars automatically. suptitle puts one title over the whole figure.
+
+[04:41] Style sheets change many defaults at once: colors, grid, fonts. Use one temporarily with a with block, or globally with plt dot style dot use. Individual defaults live in the rc params dictionary.
+
+[04:57] savefig picks the format from the file name. Vector formats like PDF and SVG stay sharp at any zoom; PNG is pixels, so raise the d p i. bbox inches tight trims extra white space.
+
+[05:12] And when your data is already in a DataFrame, its plot method builds the Matplotlib chart for you, with labels and a legend, and returns the Axes for further tweaks.
+
+[05:25] Style the lines, choose ticks and scales that suit the data, set defaults with style sheets, save in the right format, and let pandas create the plot when your data is already a DataFrame.
+
+===== [05:42] Lesson 31 - Putting it together =====
+[05:42] Lesson thirty-one, the last one, puts everything together: NumPy generates a year of raw data, pandas turns it into a monthly table, and Matplotlib draws the result.
+
+[05:54] Step one, NumPy. A seeded generator draws a city and a sales figure for each of the three hundred sixty-five days of a year. Each little square is one day, coloured by its city. These go into a DataFrame with a date column.
+
+[06:12] Before aggregating anything, look at the data. head shows the columns came out as intended, and value counts confirms roughly a third of the days for each city. Two seconds of checking saves an hour of debugging.
+
+[06:29] Step two, pandas. One chain groups the rows by month and by city, sums the sales in each group, and unstacks the cities into columns. Three hundred sixty-five rows become a twelve by three table.
+
+[06:43] Step three, Matplotlib. Calling plot on the table draws one line per column: each city's monthly total becomes a line with a marker per month. The legend comes from the column names, for free.
+
+[06:57] Then the finishing touches from the last lessons: a y label and a title with ax dot set, a light grid, and savefig to write the file.
+
+[07:09] About fifteen lines of code in total, because each library does one job well and they all speak NumPy arrays underneath.
+
+[07:19] That's the full toolkit: Python for the logic, NumPy for numbers, pandas for tables and Matplotlib for pictures. Thanks for watching, and happy coding.

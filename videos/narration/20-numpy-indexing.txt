@@ -1,0 +1,24 @@
+Lesson 20 - Indexing, slicing and masks
+Category: NumPy
+Video: 20-numpy-indexing.mp4   Length: 02:12   Narration: 292 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty: indexing NumPy arrays. You'll select rows, columns, blocks, and anything that matches a condition, and you need to know which selections share memory with the original.
+
+[00:14] Index a two-dimensional array with one pair of brackets: row, then column. a of one, two is the element in row one, column two.
+
+[00:24] Leave out the column to get a whole row. A colon means everything along that axis, so a of colon, two is column two. Slices with steps work on every axis at once.
+
+[00:39] A comparison on an array gives an array of booleans, the same shape: a mask. Indexing with the mask keeps exactly the True positions, and returns them as a flat copy.
+
+[00:52] Combine conditions with ampersand and bar, not and and or, and wrap each condition in parentheses. np dot where picks from two options element by element, and a mask on the left of an assignment changes only the matching elements.
+
+[01:10] You can also index with lists of positions. A list of row numbers picks those rows, in that order. Two lists pair up: rows zero and two, with columns one and three, gives two single elements.
+
+[01:25] A common use is sorting by another array: argsort returns the positions that would sort it, and indexing with them reorders the values.
+
+[01:36] Here's the subtle part. A basic slice is a view: a window onto the same memory. Change the view and the original array changes too.
+
+[01:47] Masks and fancy indexing always build a new array, so changing the result leaves the original alone. When you need an independent piece of a slice, call dot copy.
+
+[02:00] One bracket indexes every axis, masks select by condition, index lists pick arbitrary elements, and only basic slices share memory with the original.

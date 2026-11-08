@@ -1,0 +1,26 @@
+Lesson 02 - Numbers and operators
+Category: Python
+Video: 02-numbers-operators.mp4   Length: 02:18   Narration: 301 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson two: numbers, booleans and operators. Most of it matches what you know from C-like languages, but a handful of rules differ, and those are exactly the ones that bite.
+
+[00:15] Python integers have arbitrary precision. Two to the power one hundred simply works; there is no overflow, the number just grows more digits.
+
+[00:24] A single slash is true division and always returns a float: seven over two is three point five. Double slash is floor division.
+
+[00:34] Floor really means floor: it rounds toward minus infinity, not toward zero, so minus seven floor-divided by two is minus four, not minus three as in C. And the remainder takes the sign of the divisor.
+
+[00:51] Floats are ordinary double-precision numbers, so the usual surprise applies: point one plus point two is not exactly point three.
+
+[01:00] Never compare floats with double equals. math dot isclose compares them with a tolerance. Complex numbers are built in too, written with a j.
+
+[01:12] Two different list objects can hold equal values. Double equals compares values, so a equals b is true.
+
+[01:20] is compares identity: are these the same object? They are not. Use is only for singletons, above all for checking is None.
+
+[01:31] Any object can be tested in an if. Zero, empty strings, empty containers and None are falsy; almost everything else is truthy. So write if items, not if len of items is greater than zero.
+
+[01:46] and and or don't return booleans; they return one of their operands. or gives the first truthy one, which is handy for defaults, and and stops at the first falsy one, so the division by zero never runs. The walrus operator assigns inside an expression.
+
+[02:05] So: integers are unbounded, slash always gives a float, double slash floors, floats need a tolerance, is means same object, and empty things are false.

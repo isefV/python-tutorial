@@ -1,0 +1,355 @@
+Python - all lessons in one video (python.mp4, 37:14)
+
+===== [00:00] Lesson 01 - Syntax basics =====
+[00:00] Lesson one: syntax basics. If you already write C, Java or JavaScript, Python will look familiar, but it rests on a few different ideas. Let's see how a Python program is laid out.
+
+[00:16] There are no declarations. Writing x equals 42 creates an integer object, and binds the name x to it.
+
+[00:24] Assigning a string to the same name doesn't convert anything. A new string object is created and the label simply moves to it. The name has no type; the object does.
+
+[00:37] type of x asks the object it currently points to.
+
+[00:44] One statement can bind several names. On the right, one comma two builds a tuple; the left side unpacks it, item by item.
+
+[00:53] That gives us the classic swap with no temporary variable. b comma a is evaluated first, into a tuple of the two objects, and only then are the names rebound.
+
+[01:08] Python has no braces. A colon opens a block, and the lines indented beneath it are the block's body. The block ends where the indentation ends.
+
+[01:19] The convention is four spaces per level. Inside parentheses, brackets or braces, a long statement may also continue on the next line without a backslash.
+
+[01:32] Every value carries its type, and you can ask about it at runtime. isinstance is the preferred type test, type returns the exact class, and dir lists an object's attributes. help shows its documentation.
+
+[01:46] print takes any number of values. sep sets the separator between them, and end replaces the trailing newline, so the next print continues the same line.
+
+[01:58] To recap: names are labels on typed objects, tuples make swapping trivial, indentation is the block structure, and the built-ins let you inspect any object.
+
+===== [02:10] Lesson 02 - Numbers and operators =====
+[02:10] Lesson two: numbers, booleans and operators. Most of it matches what you know from C-like languages, but a handful of rules differ, and those are exactly the ones that bite.
+
+[02:25] Python integers have arbitrary precision. Two to the power one hundred simply works; there is no overflow, the number just grows more digits.
+
+[02:34] A single slash is true division and always returns a float: seven over two is three point five. Double slash is floor division.
+
+[02:44] Floor really means floor: it rounds toward minus infinity, not toward zero, so minus seven floor-divided by two is minus four, not minus three as in C. And the remainder takes the sign of the divisor.
+
+[03:01] Floats are ordinary double-precision numbers, so the usual surprise applies: point one plus point two is not exactly point three.
+
+[03:10] Never compare floats with double equals. math dot isclose compares them with a tolerance. Complex numbers are built in too, written with a j.
+
+[03:22] Two different list objects can hold equal values. Double equals compares values, so a equals b is true.
+
+[03:30] is compares identity: are these the same object? They are not. Use is only for singletons, above all for checking is None.
+
+[03:41] Any object can be tested in an if. Zero, empty strings, empty containers and None are falsy; almost everything else is truthy. So write if items, not if len of items is greater than zero.
+
+[03:56] and and or don't return booleans; they return one of their operands. or gives the first truthy one, which is handy for defaults, and and stops at the first falsy one, so the division by zero never runs. The walrus operator assigns inside an expression.
+
+[04:15] So: integers are unbounded, slash always gives a float, double slash floors, floats need a tolerance, is means same object, and empty things are false.
+
+===== [04:28] Lesson 03 - Strings =====
+[04:28] Lesson three: strings. A Python string is an immutable sequence of Unicode characters. Indexing and slicing work exactly like on every other sequence, and f-strings handle formatting.
+
+[04:41] A string is a row of characters. Indices start at zero, and negative indices count from the end, so s of minus one is the last character.
+
+[04:53] A slice takes start, stop and step. The stop index is excluded. s from seven to the end gives Python; a step of two takes every second character; and a step of minus one walks backwards, reversing the string.
+
+[05:11] Strings come with a rich set of methods: change case, split into a list, join a list back together, strip whitespace, replace, search. Every one of them returns a new string; the original is never touched. Join is called on the separator, not on the list.
+
+[05:32] An f-string evaluates any expression inside its braces. After a colon comes a format spec: point two f means two decimal places.
+
+[05:41] The same mini-language gives thousands separators, percentages, zero padding and hex. And the equals sign prints the expression next to its value, which is perfect for quick debugging.
+
+[05:55] You can't change a string in place. Assigning to an index raises a type error.
+
+[06:02] Instead, build a new string from pieces and rebind the name. The old object is untouched. Text becomes bytes only when you encode it: café in UTF-8 is five bytes.
+
+[06:15] Remember: slices exclude the stop index, methods return new strings, f-strings do all the formatting, and text only becomes bytes when you encode it.
+
+===== [06:28] Lesson 04 - Built-in collections =====
+[06:28] Lesson four: the built-in collections. Four types cover almost everything: list, tuple, dict and set. Knowing which one to reach for is half of writing good Python.
+
+[06:41] Here they are side by side. Lists and tuples are ordered sequences; the difference is that a tuple can't be changed. A dict maps keys to values and remembers insertion order. A set holds unique items with no order at all.
+
+[07:00] A list is a dynamic array of references. append adds one item at the end, extend adds every item of another iterable, and insert puts an item at any position.
+
+[07:13] pop removes and returns the last item, and remove deletes the first occurrence of a value. Appending and popping at the end are fast; inserting at the front must shift everything.
+
+[07:28] A dict is a hash table. The key is hashed, and the hash picks a slot, so lookup, insert and delete are constant time on average. That's why keys must be hashable: strings, numbers, tuples, but not lists.
+
+[07:44] get returns a default instead of raising a key error when the key is missing, and items gives you key, value pairs to loop over.
+
+[07:56] A set stores each item once, with fast membership tests, and supports real set algebra: union, intersection and difference, written with bar, ampersand and minus. Wrapping a list in set is the quickest way to drop duplicates.
+
+[08:14] The standard library adds a few specialised containers. Counter counts things. defaultdict creates a missing value on first access, which makes grouping a one-liner. And deque, with a max length, keeps only the last few items.
+
+[08:30] Lists for sequences you change, tuples for fixed records, dicts for lookup by key, sets for uniqueness, and the collections module for counting, grouping and queues.
+
+===== [08:42] Lesson 05 - References and mutability =====
+[08:42] Lesson five: references and mutability. One rule explains almost every why-did-my-list-change surprise in Python: assignment never copies.
+
+[08:51] a equals a list binds the name a to a new list object. b equals a does not copy that list; it attaches a second label to the very same object.
+
+[09:04] So appending through b changes the one object, and a sees the change. a is b is true: two names, one list.
+
+[09:16] Copying is explicit. A shallow copy, like dot copy, makes a new outer list, but its slots point at the same inner lists.
+
+[09:26] deepcopy copies recursively, so it shares nothing. Now append to the first inner list: the shallow copy sees ninety-nine, the deep copy does not.
+
+[09:38] A default value is evaluated once, when def runs, and stored on the function object. A list default is therefore one list shared by every call.
+
+[09:49] The first call appends one to it. The second call gets the same list back and appends two: the result is one, two. The fix is to default to None and create a fresh list inside the function.
+
+[10:07] A function receives a reference to the caller's object. Inside mutate, items and data are two labels on one list, so appending is visible outside.
+
+[10:17] Rebinding the parameter is different: it only moves the local label to a new object. The caller's list is untouched.
+
+[10:27] Assignment never copies, a shallow copy shares its insides, a mutable default is created only once, and a function can change your object but never your names.
+
+===== [10:40] Lesson 06 - Control flow: if and match =====
+[10:40] Lesson six: control flow. Python has if, elif and else, a one-line conditional expression, and since version three point ten, structural pattern matching with match.
+
+[10:53] The condition needs no parentheses. A colon ends it, and the indented block below runs when it's true. elif means else if, and the branches are tested top to bottom; the first true one wins.
+
+[11:07] Follow a score of eighty-two: not ninety or more, so on to the next test. Seventy-five or more, yes, so the grade is B, and the else branch never runs.
+
+[11:22] When you just need to choose a value, use the conditional expression: value if condition else other value. It's an expression, so it fits anywhere a value does. And when a block must exist but has nothing to do, write pass.
+
+[11:41] match compares a value against patterns, top to bottom, and the first that fits wins. There's no fall-through and no break. A pattern can capture names: a list of go and something binds that something to direction.
+
+[11:56] A bar separates alternatives, star words captures the rest of the list, an if guard adds a condition, and underscore is the wildcard that matches anything.
+
+[12:09] Patterns can look inside dicts and objects too. A mapping pattern checks keys and unpacks nested values; a class pattern checks the type and its attributes, with literals or with names to capture.
+
+[12:24] If statements need no parentheses, the conditional expression picks a value, and match checks the shape of data and pulls out the pieces in one step.
+
+===== [12:37] Lesson 07 - Loops =====
+[12:37] Lesson seven: loops. Python has no C-style for loop with an index, a test and an increment. A for loop walks over the items of any iterable, and a few helpers cover the cases where you used to need the index.
+
+[12:56] Forget the index, the test and the increment. You write for x in a list, and x takes each item in turn.
+
+[13:05] When you really want numbers, range produces them: range of five is zero to four, and range takes a start, a stop that is excluded, and a step.
+
+[13:19] Need a counter as well? enumerate yields index, item pairs, and you can choose where counting starts.
+
+[13:27] zip walks several iterables in parallel and stops at the shortest. And for a dict, items gives you each key with its value.
+
+[13:38] while repeats as long as its condition is truthy; a non-empty list counts as true. continue jumps straight to the next round, skipping the rest of the body.
+
+[13:50] break leaves the loop immediately. When STOP comes off the queue, the loop ends, and the last item is never processed.
+
+[14:01] Loops can have an else clause. It runs when the loop finishes normally, without a break, which is exactly the 'searched everything and found nothing' case.
+
+[14:12] One more habit: never remove items from a list while looping over it. Build a new list instead, usually with a comprehension, which is the next lesson.
+
+[14:25] Loop over the items themselves, use range, enumerate and zip when you need numbers or pairs, and remember that a loop's else means no break happened.
+
+===== [14:38] Lesson 08 - Comprehensions =====
+[14:38] Lesson eight: comprehensions. A comprehension builds a whole list, set or dict in a single expression. Once you can read their shape, you'll see them everywhere.
+
+[14:51] Read it in three parts: the expression to produce, n times n; the loop, for n in nums; and an optional filter, if n is even.
+
+[15:02] Watch it run over the list. Odd numbers fail the filter and are dropped. Each survivor goes through the expression, and the results are collected into a new list.
+
+[15:16] The same shape works with other brackets. Curly braces with a single expression build a set, so duplicates vanish. Curly braces with key colon value build a dict.
+
+[15:30] With parentheses you get a generator expression. No list is built at all; values are produced one at a time, as they're asked for. That makes them ideal to feed straight into sum, any or all, which can even stop early.
+
+[15:47] Think of it as a little machine with a cursor into the data. Each call to next pulls exactly one value through it. Nothing is computed in advance.
+
+[16:01] Don't confuse the two ifs. An if else at the front chooses a value for every item; an if at the end filters items out. Several for clauses nest in reading order, outer loop first, which flattens a matrix.
+
+[16:17] But once you need several statements, temporary variables or error handling, write a normal loop. Readability wins.
+
+[16:25] Read a comprehension as: this expression, for each item, if the condition holds. Brackets make a list, braces a set or dict, and parentheses a lazy generator.
+
+===== [16:39] Lesson 09 - Functions =====
+[16:39] Lesson nine: functions. def creates a function; arguments can be passed by position or by name, and Python gives you precise control over which is allowed.
+
+[16:52] A parameter can have a default value, so callers may leave it out. The string right under def is the docstring; help shows it. The annotations are documentation only.
+
+[17:04] At the call site, arguments can be passed by position or by name. Named arguments can come in any order, and they make the call read like a sentence.
+
+[17:18] The full signature can mix five kinds of parameters. Everything before a slash is positional-only. Between slash and star, a parameter may be passed either way. After the star, parameters are keyword-only, and double star kw collects any extra keywords.
+
+[17:35] So f of one, two, three, d equals four, e equals five works, and e lands in the kw dict. But passing a by name is a type error: it's positional-only. Library authors use this to keep the freedom to rename parameters.
+
+[17:54] A star parameter packs any extra positional arguments into a tuple, and a double-star parameter packs extra keyword arguments into a dict.
+
+[18:04] The same stars work in reverse at a call site: star unpacks a list into positional arguments, and double star unpacks a dict into keyword arguments.
+
+[18:17] To return several values, return a tuple and unpack it at the call. A function without a return statement returns None. Type hints are not checked at runtime: doubling a string happily returns a b a b. Tools like mypy check them before you run.
+
+[18:35] Recursion works as you'd expect, but Python doesn't optimise tail calls, and the default depth limit is about a thousand frames, so prefer loops for deep iteration.
+
+[18:48] Give parameters defaults, pass arguments by name when it helps, use slash and star to control how a function may be called, and return tuples for several results.
+
+===== [19:01] Lesson 10 - Lambdas, closures and scope =====
+[19:01] Lesson ten: functions are objects. You can store them, pass them to other functions and return them. That opens the door to lambdas and closures, and it makes scoping rules matter.
+
+[19:16] Here a function is passed as an argument. sorted calls the key function on every item and sorts by what it returns. lambda p colon p of one is a small anonymous function: one expression, returned automatically.
+
+[19:33] make counter defines an inner function and returns it. The inner function remembers count, even after make counter has finished. That captured environment is a closure. nonlocal lets it rebind count instead of creating a new local.
+
+[19:49] Each call to make counter creates a fresh cell. Calling c1 twice brings its count to two, while c2 has its own count, which is one.
+
+[20:02] When Python meets a name, it looks in four places in order: the local function, any enclosing functions, the module's globals, and finally the built-ins. The first hit wins.
+
+[20:14] Reading an outer name always works, but assigning to it creates a new local, unless you declare it global or nonlocal. And note that blocks like if and for don't create a scope; the loop variable is still alive after the loop.
+
+[20:33] A classic trap: three lambdas that each return i. They all return two. A closure looks up the variable when it's called, not when it's created, and by then the loop has finished.
+
+[20:47] The fix binds the current value early, as a default argument. Map, filter and reduce exist too, but a comprehension usually reads better.
+
+[20:58] Functions are ordinary values, closures carry their environment with them, names are looked up local, enclosing, global, built-in, and closures see a variable's final value.
+
+===== [21:11] Lesson 11 - Classes =====
+[21:11] Lesson eleven: classes. Python's object model is simple and open: self is the explicit this, attributes live in dictionaries, and properties let you add logic without changing how callers use your class.
+
+[21:26] class creates a new type. The double-underscore init method runs right after a new instance is created, and stores attributes on self. self is simply the instance, passed explicitly as the first parameter.
+
+[21:40] Calling acc dot deposit of fifty is really Account dot deposit of acc and fifty: the method is found on the class, and the instance is passed in as self.
+
+[21:55] Attributes assigned in init belong to each instance. Attributes in the class body, like bank, belong to the class and are shared by all instances.
+
+[22:05] When you read acc dot bank, Python looks in the instance first. It's not there, so it follows the link to the class and finds it. Methods are found the same way.
+
+[22:21] Python has no getters and setters by habit. Start with a plain attribute. If you later need logic, turn it into a property: callers still write t dot celsius, but now a method runs behind the scenes.
+
+[22:36] The setter can validate. Assigning minus three hundred is rejected with a value error. A property without a setter, like fahrenheit, is read-only and computed on demand.
+
+[22:50] A classmethod receives the class instead of an instance, which makes it perfect for alternative constructors like from string. A staticmethod receives neither; it's just a function that lives in the class's namespace.
+
+[23:03] There are no access modifiers. A leading underscore means internal, by convention. Two underscores trigger name mangling, which avoids clashes in subclasses but hides nothing.
+
+[23:15] init sets up each instance, self is just the first argument, lookups fall back from instance to class, and properties add logic behind plain attribute syntax.
+
+===== [23:28] Lesson 12 - Inheritance, dunders and dataclasses =====
+[23:28] Lesson twelve: inheritance, dunder methods and dataclasses. These are the tools that let your own classes behave like Python's built-in types.
+
+[23:39] Dog inherits from Animal. Its init calls super dot init to let the parent set the name, then adds a breed. Dog overrides speak, but not introduce.
+
+[23:50] Now call d dot introduce. Lookup walks the method resolution order: the instance, Dog, then Animal, where introduce is found. Inside it, self dot speak starts the search again from the instance, and finds Dog's speak. That's polymorphism: Rex says Woof.
+
+[24:09] Operators and built-ins are just syntax for special methods with double underscores. v plus w calls v dot dunder add. len calls dunder len, square brackets call dunder getitem, and printing uses dunder repr. Define them, and your class works with the syntax.
+
+[24:29] Most small classes just hold data. The dataclass decorator reads the annotated fields and writes init, repr and equality for you. frozen makes instances immutable and hashable.
+
+[24:41] For mutable defaults, use field with a default factory, so each order gets its own list, avoiding the shared-default trap from lesson five.
+
+[24:52] If it walks like a duck... Python doesn't care about an object's class, only whether it has the methods you call. A Protocol writes that expectation down for type checkers: anything with a read method is readable, no inheritance required.
+
+[25:10] Override methods and reach the parent with super, implement dunders to support operators, let dataclass write the boilerplate, and rely on behaviour rather than inheritance.
+
+===== [25:22] Lesson 13 - Exceptions =====
+[25:22] Lesson thirteen: exceptions. Python reports errors by raising exceptions, and it uses them freely, even for ordinary situations like a missing key. Handling them well is everyday Python.
+
+[25:36] Put the risky operation in the try block. If it raises, the matching except block handles it. If nothing was raised, the else block runs. And finally runs in every case, even after a return, which makes it the place for cleanup.
+
+[25:53] Calling with forty-two: int succeeds, so else prints parsed, then finally runs. With a b c, int raises a value error, so except prints bad input, and finally still runs.
+
+[26:08] Define your own exception by subclassing a built-in one. Callers can catch InvalidAge specifically, or catch any ValueError.
+
+[26:16] When you translate one error into another, raise the new one from the original. The traceback then shows both, and the original is kept as the cause.
+
+[26:29] Other languages often check first, then act: look before you leap. Python style usually just tries the operation and handles the failure: it's easier to ask forgiveness than permission. It avoids a double lookup and race conditions between the check and the use.
+
+[26:47] Whatever you catch, be specific. A tuple catches several types at once: except key error or value error. A bare except hides real bugs.
+
+[26:59] You'll meet these six constantly. Learn to read them: the exception's name usually tells you exactly what went wrong.
+
+[27:08] Put only the risky line in try, handle specific exceptions, use else for the success path and finally for cleanup, and chain your own exceptions to the original cause.
+
+===== [27:22] Lesson 14 - Files and context managers =====
+[27:22] Lesson fourteen: files and context managers. Reading and writing files is easy in Python; the important part is the with statement, which guarantees that resources are released.
+
+[27:35] open returns a file object, and the with statement makes sure it gets closed when the block ends, whether it ends normally or with an exception. Always pass an encoding; the default depends on the operating system.
+
+[27:51] Iterating over a file yields one line at a time, so even huge files never have to fit in memory. The mode picks read, write, append or binary.
+
+[28:05] pathlib represents paths as objects. The slash operator joins them, with the right separator for each operating system.
+
+[28:12] A path knows its name, stem and suffix, can read or write a whole file in one call, and can glob for matching files.
+
+[28:25] The json module converts between Python objects and JSON text: dumps produces a string, loads parses one. Note how True becomes lower-case true.
+
+[28:34] For CSV, DictReader turns each row into a dict keyed by the header. Every value comes back as a string, so convert numbers yourself.
+
+[28:47] Writing your own is easiest with the contextmanager decorator. Everything before the yield is the setup; the with block runs at the yield; everything after it, in a finally, is the teardown that always happens.
+
+[29:01] A class works too: define dunder enter and dunder exit. Files, locks, database transactions and temporary directories all use exactly this protocol.
+
+[29:12] Always open files with with and an explicit encoding, prefer pathlib for paths, use the json and csv modules for data, and write your own context managers for any setup and teardown.
+
+===== [29:27] Lesson 15 - Iterators and generators =====
+[29:27] Lesson fifteen: iterators and generators. Every for loop runs on a tiny protocol of two functions. Once you see it, generators, lazy pipelines and itertools all fall into place.
+
+[29:41] Behind every for loop: iter asks the iterable for an iterator, an object that remembers a position. Each call to next returns the following item and advances.
+
+[29:53] When nothing is left, next raises StopIteration, and the for loop takes that as its signal to stop. Write dunder iter and dunder next, and your own class works in a for loop.
+
+[30:08] Writing iterator classes by hand is tedious. A function that contains yield becomes a generator instead. Calling it runs nothing yet; it returns a generator object.
+
+[30:19] Each next runs the body until the next yield, hands out that value, and freezes, keeping all its local variables. This one is infinite, and that's fine: values only exist when someone asks for them.
+
+[30:36] Chain generators and you get a pipeline. Each stage pulls one item from the stage before it, so a row travels all the way through before the next is even read. The file could be gigabytes; memory use stays tiny.
+
+[30:53] One catch: a generator can be consumed only once. Iterate it a second time and it's simply empty.
+
+[31:02] The itertools module is a toolbox of lazy building blocks: chain joins iterables, islice slices any iterator, accumulate gives running totals, pairwise yields neighbours, product and combinations enumerate choices, and groupby groups consecutive equal items.
+
+[31:18] A for loop is iter plus repeated next, yield turns a function into a pausable generator, chained generators stream data, and itertools supplies the plumbing.
+
+===== [31:31] Lesson 16 - Decorators =====
+[31:31] Lesson sixteen: decorators. A decorator is a function that takes a function and returns a new one. The at sign above a def is just shorthand for that.
+
+[31:45] Functions are objects, so they can be passed to other functions. Writing at timed above a function definition is exactly the same as defining it, then rebinding its name to timed of the function.
+
+[32:01] Here's a real one. timed defines an inner wrapper that accepts any arguments, starts a timer, calls the original function, prints the elapsed time and passes the result back. timed returns the wrapper, and that's what the name now points to.
+
+[32:18] functools dot wraps copies the original's name and docstring onto the wrapper, so debugging and help still show slow sum instead of wrapper.
+
+[32:30] The standard library ships useful decorators. cache remembers every result by its arguments. The naive recursive Fibonacci would take forever for a hundred; with one line of decoration, each value is computed once and fib of one hundred is instant.
+
+[32:48] To pass arguments to a decorator, add one more level. repeat of three is called first and returns the actual decorator, which then receives the function and returns the wrapper.
+
+[33:01] Decorators don't have to wrap at all. A registration decorator just records the function, say in a dict of commands, and returns it unchanged. Web frameworks route URLs this way.
+
+[33:15] The at sign means rebind the name to the decorator's result, wrappers add behaviour around calls, cache memoizes, and a decorator with arguments is a function that builds a decorator.
+
+===== [33:29] Lesson 17 - Modules and the standard library =====
+[33:29] Lesson seventeen: modules and the standard library. Every Python file is a module, a folder of modules is a package, and the standard library covers a surprising amount before you need anything from PyPI.
+
+[33:45] A module is just a py file, and a package is a folder of them. import binds the module name; as gives it an alias; from import pulls names out of it. Prefer explicit imports over star imports, so readers can see where every name comes from.
+
+[34:07] Each module has a dunder name. When a file is run as a script, its name is the string dunder main; when it's imported, it's the module's own name. So code under this guard runs only when the file is executed directly, and importing it has no side effects.
+
+[34:29] The re module handles regular expressions. findall returns every match: here, both dates. Use raw strings for patterns, so backslashes reach the regex engine untouched.
+
+[34:39] datetime parses and formats dates with strptime and strftime, and timedelta does date arithmetic, like adding thirty days.
+
+[34:49] A quick tour of what's in the box: statistics for basic stats, random with a seeded generator for reproducibility, functools for partial and caching, argparse for command-line options, logging instead of print, and subprocess to run other programs.
+
+[35:06] Modules are files, packages are folders, the main guard separates script from library, and the standard library already has dates, regular expressions, statistics and command-line tools.
+
+===== [35:19] Lesson 18 - Pythonic idioms =====
+[35:19] Lesson eighteen: Pythonic idioms. Code can be correct and still not read like Python. Here are the habits that make the difference, each shown as the C-style version first, then the idiomatic one.
+
+[35:35] Need the index too? Don't loop over range of len. enumerate gives you index and item together.
+
+[35:44] Test emptiness by truthiness, and compare with None using is, never with double equals.
+
+[35:52] Adding strings in a loop copies them again and again. join builds the result in one pass.
+
+[36:02] Swapping needs no temporary variable: the right side is packed into a tuple, then unpacked.
+
+[36:10] A loop that only appends is a comprehension waiting to happen: one line, and usually faster.
+
+[36:19] dict dot get with a default replaces a whole if else block, and never raises a key error.
+
+[36:29] Comparisons chain like in maths, and f-strings beat concatenation and str calls.
+
+[36:37] And any resource that must be released belongs in a with block, so it closes even on errors.
+
+[36:46] Type import this in any Python shell to read the Zen of Python. A few lines sum up everything in this lesson: explicit is better than implicit, simple is better than complex, and readability counts.
+
+[37:02] None of these change what the code does. They change how fast another Python programmer can read it, and that is what Pythonic really means.

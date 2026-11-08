@@ -1,0 +1,22 @@
+Lesson 21 - Vectorization and broadcasting
+Category: NumPy
+Video: 21-numpy-broadcasting.mp4   Length: 02:08   Narration: 280 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty-one: vectorization and broadcasting. With NumPy you write array expressions instead of loops, and broadcasting lets arrays of different shapes combine without copying.
+
+[00:12] Arithmetic between arrays of the same shape works element by element: the first with the first, the second with the second. No loop in sight, and it runs in compiled code.
+
+[00:25] A plain number works too, applied to every element. Universal functions like square root and exp do the same, and comparisons give boolean arrays.
+
+[00:37] sum, mean, max and friends reduce the whole array to one number, unless you give an axis. Axis zero runs down the rows, axis one runs across the columns.
+
+[00:50] So sum with axis zero collapses each column into one number: four results. Mean with axis one collapses each row: three results. The axis you name is the one that disappears.
+
+[01:05] What if the shapes differ? Add a three-by-one column to a three-by-four array. NumPy stretches the size-one dimension to match, as if the column were repeated four times, without actually copying anything.
+
+[01:18] The rule: line the shapes up from the right. Each pair of dimensions must be equal, or one of them must be one. Three by four plus a plain four-element row works. Three by four plus three elements fails, because four and three don't match.
+
+[01:39] Put together: to standardize every column of a data matrix, compute the mean and standard deviation along axis zero, giving one number per column. Then subtract and divide. Broadcasting lines the three-element rows up against every row of X. Two lines, no loop.
+
+[01:57] Operators act element-wise, aggregations take an axis, broadcasting stretches size-one dimensions, and together they replace almost every loop you'd otherwise write.

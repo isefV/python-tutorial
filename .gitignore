@@ -1,5 +1,6 @@
 # --- Reference material and build output (not part of the repo) ---
 .references/
+.vscode/
 output/
 
 # --- Python / uv ---
@@ -31,3 +32,6 @@ __pycache__/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# --- Manim scratch output when run without --media_dir ---
+videos/media/

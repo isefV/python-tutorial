@@ -1,0 +1,24 @@
+Lesson 23 - Series and DataFrame
+Category: pandas
+Video: 23-pandas-dataframe.mp4   Length: 02:04   Narration: 268 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty-three begins pandas, the library for tables. It's built on NumPy, but adds the thing NumPy lacks: labels. Every row and every column has a name.
+
+[00:13] A Series is a one-dimensional array of values with an index: a label for every element. By default the labels are zero, one, two, but they can be anything, like letters.
+
+[00:26] Square brackets look up by label, so s of b is twenty. iloc looks up by position. And arithmetic works on all values at once, just like NumPy.
+
+[00:40] Here's what makes pandas different. Adding two Series does not pair them by position. It pairs them by label: b with b, c with c.
+
+[00:51] Labels that appear in only one of them have no partner, so the result there is NaN, not a number. Alignment is automatic, and it prevents a whole class of silent off-by-one bugs.
+
+[01:07] A DataFrame is a table. The easiest way to build one is a dict of columns. Each column is really a Series, and all of them share one index, the row labels on the left.
+
+[01:21] Every column has its own d-type. The missing sale became NaN, and since NaN is a float, the whole sales column is float sixty-four.
+
+[01:33] shape gives rows and columns. columns and index are the two sets of labels.
+
+[01:40] Any column can become the index with set index, so you can look rows up by city. reset index turns it back into a normal column.
+
+[01:52] A Series is labelled values, a DataFrame is labelled columns sharing an index, and every operation lines data up by label rather than by position.

@@ -1,0 +1,24 @@
+Lesson 09 - Functions
+Category: Python
+Video: 09-functions.mp4   Length: 02:22   Narration: 314 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson nine: functions. def creates a function; arguments can be passed by position or by name, and Python gives you precise control over which is allowed.
+
+[00:13] A parameter can have a default value, so callers may leave it out. The string right under def is the docstring; help shows it. The annotations are documentation only.
+
+[00:25] At the call site, arguments can be passed by position or by name. Named arguments can come in any order, and they make the call read like a sentence.
+
+[00:39] The full signature can mix five kinds of parameters. Everything before a slash is positional-only. Between slash and star, a parameter may be passed either way. After the star, parameters are keyword-only, and double star kw collects any extra keywords.
+
+[00:56] So f of one, two, three, d equals four, e equals five works, and e lands in the kw dict. But passing a by name is a type error: it's positional-only. Library authors use this to keep the freedom to rename parameters.
+
+[01:15] A star parameter packs any extra positional arguments into a tuple, and a double-star parameter packs extra keyword arguments into a dict.
+
+[01:25] The same stars work in reverse at a call site: star unpacks a list into positional arguments, and double star unpacks a dict into keyword arguments.
+
+[01:38] To return several values, return a tuple and unpack it at the call. A function without a return statement returns None. Type hints are not checked at runtime: doubling a string happily returns a b a b. Tools like mypy check them before you run.
+
+[01:56] Recursion works as you'd expect, but Python doesn't optimise tail calls, and the default depth limit is about a thousand frames, so prefer loops for deep iteration.
+
+[02:09] Give parameters defaults, pass arguments by name when it helps, use slash and star to control how a function may be called, and return tuples for several results.

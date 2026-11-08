@@ -1,0 +1,20 @@
+Lesson 06 - Control flow: if and match
+Category: Python
+Video: 06-control-flow.mp4   Length: 01:57   Narration: 253 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson six: control flow. Python has if, elif and else, a one-line conditional expression, and since version three point ten, structural pattern matching with match.
+
+[00:13] The condition needs no parentheses. A colon ends it, and the indented block below runs when it's true. elif means else if, and the branches are tested top to bottom; the first true one wins.
+
+[00:27] Follow a score of eighty-two: not ninety or more, so on to the next test. Seventy-five or more, yes, so the grade is B, and the else branch never runs.
+
+[00:42] When you just need to choose a value, use the conditional expression: value if condition else other value. It's an expression, so it fits anywhere a value does. And when a block must exist but has nothing to do, write pass.
+
+[01:01] match compares a value against patterns, top to bottom, and the first that fits wins. There's no fall-through and no break. A pattern can capture names: a list of go and something binds that something to direction.
+
+[01:16] A bar separates alternatives, star words captures the rest of the list, an if guard adds a condition, and underscore is the wildcard that matches anything.
+
+[01:29] Patterns can look inside dicts and objects too. A mapping pattern checks keys and unpacks nested values; a class pattern checks the type and its attributes, with literals or with names to capture.
+
+[01:44] If statements need no parentheses, the conditional expression picks a value, and match checks the shape of data and pulls out the pieces in one step.

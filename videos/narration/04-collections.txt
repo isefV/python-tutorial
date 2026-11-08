@@ -1,0 +1,22 @@
+Lesson 04 - Built-in collections
+Category: Python
+Video: 04-collections.mp4   Length: 02:15   Narration: 291 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson four: the built-in collections. Four types cover almost everything: list, tuple, dict and set. Knowing which one to reach for is half of writing good Python.
+
+[00:13] Here they are side by side. Lists and tuples are ordered sequences; the difference is that a tuple can't be changed. A dict maps keys to values and remembers insertion order. A set holds unique items with no order at all.
+
+[00:32] A list is a dynamic array of references. append adds one item at the end, extend adds every item of another iterable, and insert puts an item at any position.
+
+[00:45] pop removes and returns the last item, and remove deletes the first occurrence of a value. Appending and popping at the end are fast; inserting at the front must shift everything.
+
+[01:00] A dict is a hash table. The key is hashed, and the hash picks a slot, so lookup, insert and delete are constant time on average. That's why keys must be hashable: strings, numbers, tuples, but not lists.
+
+[01:16] get returns a default instead of raising a key error when the key is missing, and items gives you key, value pairs to loop over.
+
+[01:28] A set stores each item once, with fast membership tests, and supports real set algebra: union, intersection and difference, written with bar, ampersand and minus. Wrapping a list in set is the quickest way to drop duplicates.
+
+[01:46] The standard library adds a few specialised containers. Counter counts things. defaultdict creates a missing value on first access, which makes grouping a one-liner. And deque, with a max length, keeps only the last few items.
+
+[02:02] Lists for sequences you change, tuples for fixed records, dicts for lookup by key, sets for uniqueness, and the collections module for counting, grouping and queues.

@@ -1,0 +1,20 @@
+Lesson 31 - Putting it together
+Category: Matplotlib
+Video: 31-end-to-end.mp4   Length: 01:49   Narration: 248 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson thirty-one, the last one, puts everything together: NumPy generates a year of raw data, pandas turns it into a monthly table, and Matplotlib draws the result.
+
+[00:12] Step one, NumPy. A seeded generator draws a city and a sales figure for each of the three hundred sixty-five days of a year. Each little square is one day, coloured by its city. These go into a DataFrame with a date column.
+
+[00:30] Before aggregating anything, look at the data. head shows the columns came out as intended, and value counts confirms roughly a third of the days for each city. Two seconds of checking saves an hour of debugging.
+
+[00:47] Step two, pandas. One chain groups the rows by month and by city, sums the sales in each group, and unstacks the cities into columns. Three hundred sixty-five rows become a twelve by three table.
+
+[01:01] Step three, Matplotlib. Calling plot on the table draws one line per column: each city's monthly total becomes a line with a marker per month. The legend comes from the column names, for free.
+
+[01:15] Then the finishing touches from the last lessons: a y label and a title with ax dot set, a light grid, and savefig to write the file.
+
+[01:27] About fifteen lines of code in total, because each library does one job well and they all speak NumPy arrays underneath.
+
+[01:37] That's the full toolkit: Python for the logic, NumPy for numbers, pandas for tables and Matplotlib for pictures. Thanks for watching, and happy coding.

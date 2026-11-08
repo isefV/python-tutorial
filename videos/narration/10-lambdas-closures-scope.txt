@@ -1,0 +1,22 @@
+Lesson 10 - Lambdas, closures and scope
+Category: Python
+Video: 10-lambdas-closures-scope.mp4   Length: 02:09   Narration: 283 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson ten: functions are objects. You can store them, pass them to other functions and return them. That opens the door to lambdas and closures, and it makes scoping rules matter.
+
+[00:15] Here a function is passed as an argument. sorted calls the key function on every item and sorts by what it returns. lambda p colon p of one is a small anonymous function: one expression, returned automatically.
+
+[00:32] make counter defines an inner function and returns it. The inner function remembers count, even after make counter has finished. That captured environment is a closure. nonlocal lets it rebind count instead of creating a new local.
+
+[00:48] Each call to make counter creates a fresh cell. Calling c1 twice brings its count to two, while c2 has its own count, which is one.
+
+[01:01] When Python meets a name, it looks in four places in order: the local function, any enclosing functions, the module's globals, and finally the built-ins. The first hit wins.
+
+[01:13] Reading an outer name always works, but assigning to it creates a new local, unless you declare it global or nonlocal. And note that blocks like if and for don't create a scope; the loop variable is still alive after the loop.
+
+[01:32] A classic trap: three lambdas that each return i. They all return two. A closure looks up the variable when it's called, not when it's created, and by then the loop has finished.
+
+[01:46] The fix binds the current value early, as a default argument. Map, filter and reduce exist too, but a comprehension usually reads better.
+
+[01:57] Functions are ordinary values, closures carry their environment with them, names are looked up local, enclosing, global, built-in, and closures see a variable's final value.

@@ -1,0 +1,22 @@
+Lesson 24 - Load and inspect
+Category: pandas
+Video: 24-pandas-load-inspect.mp4   Length: 01:57   Narration: 251 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson twenty-four: loading and inspecting data. Real work starts with a file, and the first few minutes with a new dataset always follow the same routine.
+
+[00:13] read csv turns a text file into a DataFrame. It reads the header for column names, guesses each column's type, and treats empty fields as missing. There are siblings for Excel, Parquet, JSON and SQL databases.
+
+[00:28] head shows the first rows, five by default, and tail the last ones. That's always the first thing to run: does the data look like you expected?
+
+[00:41] Next, the structure: shape, the d-type of every column, and info, which adds non-null counts and memory use. Already you can see that sales has only five values out of six.
+
+[00:54] describe summarizes every numeric column: count, mean, standard deviation, minimum, quartiles and maximum. Again count is five, so one value is missing.
+
+[01:06] For text columns, value counts tells you how often each value appears, and nunique how many distinct values there are. Typos and inconsistent spellings show up here immediately.
+
+[01:18] And isna dot sum counts missing values per column. True counts as one, so summing the boolean mask counts the gaps.
+
+[01:29] Writing is the mirror image: to csv, to json, to parquet, to excel. Pass index equals False to csv unless the index carries real information; otherwise you get an extra unnamed column.
+
+[01:43] Read the file, look at the first rows, check the shape and types, summarize the numbers, count the categories and the missing values, and only then start analysing.

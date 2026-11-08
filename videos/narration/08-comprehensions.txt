@@ -1,0 +1,22 @@
+Lesson 08 - Comprehensions
+Category: Python
+Video: 08-comprehensions.mp4   Length: 02:01   Narration: 261 words at ~150 wpm
+Each paragraph starts at the timestamp shown; the picture waits for the voice.
+
+[00:00] Lesson eight: comprehensions. A comprehension builds a whole list, set or dict in a single expression. Once you can read their shape, you'll see them everywhere.
+
+[00:13] Read it in three parts: the expression to produce, n times n; the loop, for n in nums; and an optional filter, if n is even.
+
+[00:24] Watch it run over the list. Odd numbers fail the filter and are dropped. Each survivor goes through the expression, and the results are collected into a new list.
+
+[00:38] The same shape works with other brackets. Curly braces with a single expression build a set, so duplicates vanish. Curly braces with key colon value build a dict.
+
+[00:52] With parentheses you get a generator expression. No list is built at all; values are produced one at a time, as they're asked for. That makes them ideal to feed straight into sum, any or all, which can even stop early.
+
+[01:09] Think of it as a little machine with a cursor into the data. Each call to next pulls exactly one value through it. Nothing is computed in advance.
+
+[01:23] Don't confuse the two ifs. An if else at the front chooses a value for every item; an if at the end filters items out. Several for clauses nest in reading order, outer loop first, which flattens a matrix.
+
+[01:39] But once you need several statements, temporary variables or error handling, write a normal loop. Readability wins.
+
+[01:47] Read a comprehension as: this expression, for each item, if the condition holds. Brackets make a list, braces a set or dict, and parentheses a lazy generator.
